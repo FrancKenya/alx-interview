@@ -3,6 +3,7 @@
 """Function opens a stack of boxes and returns true if all opened
 and false if not all opened"""
 
+
 def canUnlockAll(boxes):
     """Function that checks if n number of boxes can be all opened
     Returns: True if they are all successfully opened and False if not"""
