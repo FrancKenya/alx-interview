@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 
+"""Function opens a stack of boxes and returns true if all opened
+and false if not all opened"""
+
 def canUnlockAll(boxes):
-    """Functon that checks if n number of boxes can be all opened
+    """Function that checks if n number of boxes can be all opened
     Returns: True if they are all successfully opened and False if not"""
 
     # create a set for rhe opened boxes with the first box
