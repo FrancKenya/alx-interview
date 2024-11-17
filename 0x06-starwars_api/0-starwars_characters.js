@@ -7,19 +7,29 @@ const options = {
 };
 
 request(options, function (error, response, body) {
-  if (!error) {
-    const chars = JSON.parse(body).chars;
-    printChars(chars, 0);
+  if (!error && response.statusCode === 200) {
+    const chars = JSON.parse(body).characters;
+    if (chars && chars.length > 0) {
+      printChars(chars, 0);
+    } else {
+      console.error('No characters found for the given movie.');
+    }
+  } else {
+    console.error('Error:', error || `Status code: ${response.statusCode}`);
   }
 });
 
-function printChars (chars, idx) {
+function printChars(chars, idx) {
   request(chars[idx], function (error, response, body) {
-    if (!error) {
+    if (!error && response.statusCode === 200) {
       console.log(JSON.parse(body).name);
       if (idx + 1 < chars.length) {
         printChars(chars, idx + 1);
       }
+    } else {
+      console.error(
+        'Error fetching character:', error ||
+        `Status code: ${response.statusCode}`);
     }
   });
 }
