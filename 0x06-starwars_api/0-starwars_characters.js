@@ -19,7 +19,7 @@ request(options, function (error, response, body) {
   }
 });
 
-function printChars(chars, idx) {
+function printChars (chars, idx) {
   request(chars[idx], function (error, response, body) {
     if (!error && response.statusCode === 200) {
       console.log(JSON.parse(body).name);
